@@ -43,17 +43,25 @@ func StartGuessing() {}
 ```
 
 Remember that users of XternCoin would only have access to the two functions you wrote above; they can't directly see what random number they are trying to guess, so this function will have to guess randomly as well.
+
 It'd be a good idea to log every attempt you make, as well as a running count of how many coins you have. Here are some things you might consider:
-State to store the number of coins each user has
-State to store the current number clients are trying to guess
-Logic to generate a new random number when the correct one is guessed
- While the above three functions are all that is required of this assessment a full implementation may require more. If you’d like to demonstrate more of your awesome skills feel free to write a complete program. 
-FAQ
-Q:  Which programming language should I use? 
+
+* State to store the number of coins each user has
+* State to store the current number clients are trying to guess
+* Logic to generate a new random number when the correct one is guessed
+
+While the above three functions are all that is required of this assessment a full implementation may require more. If you’d like to demonstrate more of your awesome skills feel free to write a complete program.  
+
+####FAQ.
+
+Q:  Which programming language should I use?  
 A:  Anything you'd like.
-Q:  Does the coin ledger which stores how many coins each user has have to persist between each run of the program?
+
+Q:  Does the coin ledger which stores how many coins each user has have to persist between each run of the program?  
 A:   No, but all the better if it does.
-Q:  Where does the user id come from? In a real system, we'd have some way to create and sign-in users. 
+
+Q:  Where does the user id come from? In a real system, we'd have some way to create and sign-in users.  
 A:  We don't have that here. If you want to implement that, feel free, but otherwise simply passing a constant string inStartGuessing() is sufficient.
-Q:  What range of random numbers should be generated? 
+
+Q:  What range of random numbers should be generated?  
 A:  This is an implementation detail. Make sure your range is large enough so it isn't too easy, but not so large that clients can never guess correctly. 1 to 10 is perfectly fine.
