@@ -1,12 +1,12 @@
 # XternApplication
 
-[Xtern Website](xtern.me)
+[Xtern Website](https://xtern.me)
 
 Xtern is a TechPoint Talent Program that connects Companies in Indianapolis to prospective students looking for internships.
 
 This project was completed as a necessary step in the application process. 
 
-Instructions:
+##Instructions:##
 
 The Background
 A new cryptocurrency has hit the market called XternCoin, and you are the lead developer, product manager, IT analyst, and/or designer (depending on the role you are applying for in Xtern).
