@@ -1,6 +1,6 @@
 # XternApplication
 
-(xtern.me)
+[Xtern Website](xtern.me)
 
 Xtern is a TechPoint Talent Program that connects Companies in Indianapolis to prospective students looking for internships.
 
@@ -18,7 +18,7 @@ Your job, should you choose to accept it, is to advance the creation of XternCoi
 Scoring Criteria 
 These are relatively open-ended questions. You can expect grading will be appropriately open-ended. If you can go above-and-beyond the prompt to produce something really cool, you can expect us to recognize that.
 We know your time is valuable. You shouldn't have to spend more than an hour or two on this.
--------
+
 XternCoin operates like this: The "server" (your code you are writing) stores a single random number. Clients have to guess what this number is. If they guess correctly, the app awards them 1 coin and chooses a new random number for the next guess.
 Today, we are going to write a few functions XternCoin's server will need.
 
