@@ -1,6 +1,6 @@
 # XternApplication
 
-[Xtern Website](https://xtern.me)
+[Xtern Website](http://xtern.me)
 
 Xtern is a TechPoint Talent Program that connects Companies in Indianapolis to prospective students looking for internships.
 
@@ -14,7 +14,7 @@ Like all cryptocurrencies, XternCoin has value because of the compute difficulty
 XternCoin users must guess random numbers. If they guess correctly, they are awarded a coin. Once they have coins, they can trade them with other users, buy things... all the normal stuff you can do with dollars. At least, that's the idea.
 The Problem
 Right now, XternCoin is just an idea and a small spec.
-Your job, should you choose to accept it, is to advance the creation of XternCoin in a way that best fits your background and skillset. Pick one of the sections below based upon the role you are applying for in Xtern. If your role isn't listed verbatim, read over them all and try your hand at something similar, or contact TechPoint (talent@techpoint.org) for more help.
+Your job, should you choose to accept it, is to advance the creation of XternCoin in a way that best fits your background and skillset. Pick one of the sections below based upon the role you are applying for in Xtern. If your role isn't listed verbatim, read over them all and try your hand at something similar, or contact TechPoint for more help.
 Scoring Criteria 
 These are relatively open-ended questions. You can expect grading will be appropriately open-ended. If you can go above-and-beyond the prompt to produce something really cool, you can expect us to recognize that.
 We know your time is valuable. You shouldn't have to spend more than an hour or two on this.
