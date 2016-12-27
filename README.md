@@ -15,21 +15,32 @@ XternCoin users must guess random numbers. If they guess correctly, they are awa
 ####The Problem
 Right now, XternCoin is just an idea and a small spec.
 Your job, should you choose to accept it, is to advance the creation of XternCoin in a way that best fits your background and skillset. Pick one of the sections below based upon the role you are applying for in Xtern. If your role isn't listed verbatim, read over them all and try your hand at something similar, or contact TechPoint for more help.
-Scoring Criteria 
+####Scoring Criteria 
 These are relatively open-ended questions. You can expect grading will be appropriately open-ended. If you can go above-and-beyond the prompt to produce something really cool, you can expect us to recognize that.
 We know your time is valuable. You shouldn't have to spend more than an hour or two on this.
 
 XternCoin operates like this: The "server" (your code you are writing) stores a single random number. Clients have to guess what this number is. If they guess correctly, the app awards them 1 coin and chooses a new random number for the next guess.
 Today, we are going to write a few functions XternCoin's server will need.
 
+```
+//Function which takes a user's id and a user's guess, and returns whether or not their guess was correct.
+
 func HandleGuess(userId string, guess int) bool {}
-Function which takes a user's id and a user's guess, and returns whether or not their guess was correct.
+```
+
+```
+//Function which takes a userid and returns how many coins they have.
+
 func GetCoins(userId string) int {}
-Function which takes a userid and returns how many coins they have.
+```
 
 Finally, one more function is required:
+
+```
+//A function which, when called, pretends to be a user of XternCoin and uses the other two functions you've written to //accumulate coins by guessing random numbers in a loop (indefinite is fine).
+
 func StartGuessing() {}
-A function which, when called, pretends to be a user of XternCoin and uses the other two functions you've written to accumulate coins by guessing random numbers in a loop (indefinite is fine).
+```
 
 Remember that users of XternCoin would only have access to the two functions you wrote above; they can't directly see what random number they are trying to guess, so this function will have to guess randomly as well.
 It'd be a good idea to log every attempt you make, as well as a running count of how many coins you have. Here are some things you might consider:
