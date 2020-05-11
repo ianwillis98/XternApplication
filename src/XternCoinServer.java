@@ -31,32 +31,32 @@ public final class XternCoinServer {
     private volatile boolean isRunning;
 
     public XternCoinServer() {
-	// ConcurrentHashMap is used to allow users to be added while guessing
-	// is taking place
-	users = new ConcurrentHashMap<>();
-	random = new SecureRandom();
-	currentRandomNumber = random.nextInt(maxRandomInt);
+        // ConcurrentHashMap is used to allow users to be added while guessing
+        // is taking place
+        users = new ConcurrentHashMap<>();
+        random = new SecureRandom();
+        currentRandomNumber = random.nextInt(maxRandomInt);
     }
 
     public String createNewXternCoinUser() {
-	String uuid = generateUuid();
-	users.put(uuid, 0);
-	return uuid;
+        String uuid = generateUuid();
+        users.put(uuid, 0);
+        return uuid;
     }
 
     public String generateUuid() {
-	// "[chooses] 130 bits from a cryptographically secure random bit
-	// generator, and [encodes] them in base-32." -
-	// http://stackoverflow.com/a/41156/6907163
-	String randomUuid = "";
-	do {
-	    randomUuid = new BigInteger(130, random).toString(32);
-	} while (isUuidInUse(randomUuid));
-	return randomUuid;
+        // "[chooses] 130 bits from a cryptographically secure random bit
+        // generator, and [encodes] them in base-32." -
+        // http://stackoverflow.com/a/41156/6907163
+        String randomUuid = "";
+        do {
+            randomUuid = new BigInteger(130, random).toString(32);
+        } while (isUuidInUse(randomUuid));
+        return randomUuid;
     }
 
     private boolean isUuidInUse(String uuid) {
-	return users.containsKey(uuid);
+        return users.containsKey(uuid);
     }
 
     /*
@@ -65,37 +65,37 @@ public final class XternCoinServer {
      * guessing random numbers in a loop (indefinite is fine).
      */
     public void startGuessing() {
-	if (isRunning)
-	    return;
-	isRunning = true;
-	guessThread = new Thread(new Runnable() {
-	    @Override
-	    public void run() {
-		while (isRunning) {
-		    for (String userId : users.keySet()) {
-			int randomGuess = random.nextInt(maxRandomInt);
-			boolean isCorrectGuess = handleGuess(userId, randomGuess);
-			if (isCorrectGuess) {
-			    increaseCoinCount(userId);
-			}
-		    }
-		    try {
-			// Decrease load on cpu
-			// Sleeps for 1 millisecond
-			Thread.sleep(1);
-		    } catch (InterruptedException e) {
-			e.printStackTrace();
-		    }
-		}
-	    }
-	});
-	// Begin guessing on async thread
-	guessThread.start();
+        if (isRunning) return;
+
+        isRunning = true;
+        guessThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (isRunning) {
+                    for (String userId : users.keySet()) {
+                        int randomGuess = random.nextInt(maxRandomInt);
+                        boolean isCorrectGuess = handleGuess(userId, randomGuess);
+                        if (isCorrectGuess) {
+                            increaseCoinCount(userId);
+                        }
+                    }
+                    try {
+                        // Decrease load on cpu
+                        // Sleeps for 1 millisecond
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        // Begin guessing on async thread
+        guessThread.start();
 
     }
 
     public void stopGuessing() {
-	isRunning = false;
+        isRunning = false;
     }
 
     /*
@@ -103,27 +103,27 @@ public final class XternCoinServer {
      * or not their guess was correct.
      */
     private boolean handleGuess(String userId, int guess) {
-	boolean isCorrectGuess = (guess == currentRandomNumber);
-	if (isCorrectGuess) {
-	    System.out.println("User " + userId + " guessed " + guess + " and was right! +1 coin");
-	    currentRandomNumber = random.nextInt(maxRandomInt);
-	}
-	return isCorrectGuess;
+        boolean isCorrectGuess = (guess == currentRandomNumber);
+        if (isCorrectGuess) {
+            System.out.println("User " + userId + " guessed " + guess + " and was right! +1 coin");
+            currentRandomNumber = random.nextInt(maxRandomInt);
+        }
+        return isCorrectGuess;
     }
 
     /*
      * Increases the coin count of the user associated with the userId parameter
      */
     private void increaseCoinCount(String userId) {
-	int newCoins = users.get(userId) + 1;
-	users.replace(userId, newCoins);
+        int newCoins = users.get(userId) + 1;
+        users.replace(userId, newCoins);
     }
 
     /*
      * Function which takes a user's id and returns how many coins they have
      */
     public int getCoins(String userId) {
-	return users.get(userId);
+        return users.get(userId);
     }
 
     /*
@@ -132,13 +132,13 @@ public final class XternCoinServer {
      * of the amount
      */
     public void tradeCoins(String fromUserId, String toUserId, int amount) {
-	int fromCoinCount = users.get(fromUserId);
-	int toCoinCount = users.get(toUserId);
-	if (amount > fromCoinCount) {
-	    amount = fromCoinCount;
-	}
-	users.replace(fromUserId, fromCoinCount - amount);
-	users.replace(toUserId, toCoinCount + amount);
+        int fromCoinCount = users.get(fromUserId);
+        int toCoinCount = users.get(toUserId);
+        if (amount > fromCoinCount) {
+            amount = fromCoinCount;
+        }
+        users.replace(fromUserId, fromCoinCount - amount);
+        users.replace(toUserId, toCoinCount + amount);
     }
 
 }
