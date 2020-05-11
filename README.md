@@ -4,6 +4,8 @@
 
 This project was completed as a necessary step in the application process. 
 
+I interned at [SEI Archway](https://www.archwaytechnology.net/) summer 2017 as an Xtern.
+
 ## Project Instructions:
 
 #### The Background
