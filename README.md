@@ -1,6 +1,6 @@
 # XternApplication
 
-[Xtern](http://xtern.me) is a TechPoint Talent Program that connects Companies in Indianapolis to prospective students looking for internships.
+[Xtern](https://techpoint.org/xtern/) is a TechPoint Talent Program that connects Companies in Indianapolis to prospective students looking for internships.
 
 This project was completed as a necessary step in the application process. 
 
